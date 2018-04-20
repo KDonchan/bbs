@@ -6,6 +6,7 @@
 package ejb;
 
 import beans.Kakiko;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
@@ -25,11 +26,15 @@ private EntityManager em;
 
     public void createKakiko(Kakiko wKakiko)throws EJBException{
         em.persist(wKakiko);
+        em.flush();
     }
     
     public List<Kakiko> getAllKakakio(){
+        em.clear();
+        List<Kakiko> wKakiko = new ArrayList<>();
+        wKakiko = em.createQuery("select k from Kakiko k ORDER BY k.day DESC", Kakiko.class).getResultList();
         
-        return em.createQuery("select k from Kakiko k ORDER BY k.day DESC", Kakiko.class).getResultList();
+        return wKakiko;
         //return em.createNativeQuery("select * from kakiko order by day desc" , Kakiko.class).getResultList();
         
     }
