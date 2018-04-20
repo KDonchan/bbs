@@ -30,10 +30,8 @@ private EntityManager em;
     }
     
     public List<Kakiko> getAllKakakio(){
-        em.clear();
         List<Kakiko> wKakiko = new ArrayList<>();
         wKakiko = em.createQuery("select k from Kakiko k ORDER BY k.day DESC", Kakiko.class).getResultList();
-        
         return wKakiko;
         //return em.createNativeQuery("select * from kakiko order by day desc" , Kakiko.class).getResultList();
         
