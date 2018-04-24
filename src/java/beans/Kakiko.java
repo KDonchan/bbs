@@ -71,17 +71,7 @@ public class Kakiko {
     }
 
     public String getDay() {
-        SimpleDateFormat sdf=null;
-        String wDay = day;
-        Date formatDate=null;
-        try {
-             sdf = new SimpleDateFormat("yy年MM月dd日 E曜日");
-            formatDate = sdf.parse(day);
-            wDay = sdf.format(formatDate);
-        } catch (ParseException ex) {
-            Logger.getLogger(Kakiko.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return wDay;
+        return day;
     }
 
     public void setDay(String day) {
