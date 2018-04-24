@@ -5,6 +5,11 @@
  */
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -66,7 +71,17 @@ public class Kakiko {
     }
 
     public String getDay() {
-        return day;
+        SimpleDateFormat sdf=null;
+        String wDay = day;
+        Date formatDate=null;
+        try {
+             sdf = new SimpleDateFormat("yy年MM月dd日 E曜日");
+            formatDate = sdf.parse(day);
+            wDay = sdf.format(formatDate);
+        } catch (ParseException ex) {
+            Logger.getLogger(Kakiko.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return wDay;
     }
 
     public void setDay(String day) {

@@ -6,7 +6,9 @@
 package beans;
 
 import ejb.KakikoDb;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
@@ -36,8 +38,9 @@ public class KakikoRequest {
     
     public String kakikoAddNext(){
         String nextPage=null;
-        LocalDateTime t = LocalDateTime.now();
-        String now=t.toString();
+        //LocalDateTime t = LocalDateTime.now();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        String now = sdf.format(new Date());
         Kakiko wKakiko = new Kakiko(sessionOcUser.getUser_name(), msg, now ,sessionOcUser.getUser_id());
         try{
         db.createKakiko(wKakiko);
