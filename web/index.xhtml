@@ -6,10 +6,10 @@
         <title>システムエンジニア体験授業</title>
         <h:outputStylesheet name="mainCss.css" library="css"/>
     </h:head>
-    <h:body style="background-image: url(resources/img/body.jpg) ">
+    <h:body id="login" style="background-image: url(resources/img/body.jpg)">
         <h:outputText value="#{ocUserRequestBean.errMsg}"/><p/>
         <h:form>
-            <div id="login">
+            <div >
             <h:panelGrid columns="3">
                 ID<h:inputText value="#{ocUserRequestBean.user_id}"></h:inputText><h:outputText />
                 パスワード<h:inputText value="#{ocUserRequestBean.user_pass}"></h:inputText><h:outputText/>
