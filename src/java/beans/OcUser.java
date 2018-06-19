@@ -6,6 +6,7 @@
 package beans;
 
 import javax.persistence.Basic;
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;

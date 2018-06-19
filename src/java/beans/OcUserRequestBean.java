@@ -9,6 +9,7 @@ import ejb.OcUserTbl;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -28,7 +29,7 @@ import org.primefaces.model.StreamedContent;
  */
 @Named(value = "ocUserRequestBean")
 @RequestScoped
-public class OcUserRequestBean {
+public class OcUserRequestBean implements Serializable{
     @Inject
     private OcUserBean sessionOcUser;    
     private String user_id;
@@ -92,6 +93,7 @@ public class OcUserRequestBean {
 
     //プライマリキー重複チェック
     public void dupCheck(){
+        
         if(db.find(user_id)!=null){
             idDupFlg=true;
             ocErrMsg = "登録済みIDです";
