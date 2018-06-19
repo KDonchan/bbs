@@ -24,10 +24,11 @@
                 <h:commandLink action="#{ocUserRequestBean.looutNext()}">ログアウトはこちらへ</h:commandLink><p/>
                 <h:commandLink action="#{ocUserRequestBean.delUserNext()}">ユーザ削除はこちらへ</h:commandLink>
             </h:form><p/>
+            <h:link outcome="bbs">ページ更新</h:link>
         </div>
         
         <div id="displayArea" >
-            <h:dataTable border="2" rowClasses="row" headerClass="hd1" value="#{kakikoRequest.all}" var="m">
+            <h:dataTable id="bbs" border="2" rowClasses="row" headerClass="hd1" value="#{kakikoRequest.all}" var="m">
                     <h:column><f:facet name="header" ><h:outputText value="写真"/></f:facet>
                         <p:graphicImage value="#{ocUserRequestBean.pic}" height="40" >
                             <f:param name="user_id" value="#{m.userId}"/>
