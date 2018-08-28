@@ -9,7 +9,7 @@
     </h:head>
     <h:body styleClass="form1">
         <h:outputText value="#{ocUserRequestBean.errMsg}"/><p/>
-        <h:form enctype="multipart/form-data">
+        <h:form  enctype="multipart/form-data">
             id<h:inputText value="#{ocUserRequestBean.user_id}">
                 <f:ajax event="blur" execute="@this" listener="#{ocUserRequestBean.dupCheck()}" render="userAddBtn idErrMsg"/>
             </h:inputText>
@@ -20,6 +20,7 @@
             写真<h:inputFile  value="#{ocUserRequestBean.photoFile}"/><p/>
             <h:commandButton id="userAddBtn" value="登録" action="#{ocUserRequestBean.addUserNext()}" disabled="#{ocUserRequestBean.idDupFlg}"/>
         </h:form>
+        <p><h:link outcome="index">トップページへ戻る</h:link></p>
     </h:body>
 </html>
 
