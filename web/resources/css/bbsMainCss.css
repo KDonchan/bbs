@@ -1,11 +1,19 @@
 
+P{
+    margin:3px 0;
+}
+
+
 div#inputArea{
     background-color: darkgrey;
+    height: 330px;
 }
 
 div#displayArea{
-    margin-top: 50px;
+    height: 400px;
+    margin-top: 10px;
     background-color: #ccffcc;
+    overflow-y: scroll;
 }
 
 .hd1{

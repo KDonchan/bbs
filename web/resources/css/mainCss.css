@@ -9,6 +9,10 @@ and open the template in the editor.
 */
 
 .login{
-    background-image: url(/resources/img/jetAirplane.jpg);
+    background-image: url("../../img/section.jpg")
+}
+
+.form1 {
+    background-color: aqua;
 }
 
