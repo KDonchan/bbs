@@ -11,7 +11,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -57,6 +56,7 @@ public class OcUserTbl {
     }
     
     public OcUser find(String wId){
+        em.flush();
         return em.find(OcUser.class, wId);
     }
     

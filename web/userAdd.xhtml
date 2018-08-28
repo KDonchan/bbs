@@ -5,8 +5,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet name="mainCss.css" library="css"/>
     </h:head>
-    <h:body>
+    <h:body styleClass="form1">
         <h:outputText value="#{ocUserRequestBean.errMsg}"/><p/>
         <h:form enctype="multipart/form-data">
             id<h:inputText value="#{ocUserRequestBean.user_id}">

@@ -6,8 +6,8 @@
 package beans;
 
 import ejb.KakikoDb;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -21,7 +21,7 @@ import javax.inject.Inject;
  */
 @Named(value = "kakikoRequest")
 @RequestScoped
-public class KakikoRequest {
+public class KakikoRequest implements Serializable{
     private String id;
     private String name,msg,day;
     @EJB

@@ -14,32 +14,34 @@
     </h:head>
     <h:body>       
         <div id="inputArea">
-             <h:outputText style="font-size: 1.5em" value="「#{ocUserBean.user_name}」さんのかきこページ"/><p/>
+            <p:graphicImage value="#{ocUserRequestBean.pic}" width="60"><f:param name="user_id" value="#{ocUserBean.user_id}" /></p:graphicImage>
+            <h:outputText style="font-size: 1.5em" value="「#{ocUserBean.user_name}」さんのかきこページ"/><p/>
             <h:form>
                 <h:panelGrid columns="3">
-                    コメント：<h:inputTextarea value="#{kakikoRequest.msg}" rows="10" cols="60"/><h:outputText id="comentMsg"/>
+                    コメント：<h:inputTextarea value="#{kakikoRequest.msg}" rows="5" cols="60"/><h:outputText id="comentMsg"/>
                 </h:panelGrid>
-                <h:commandButton value="カキコ" action="#{kakikoRequest.kakikoAddNext()}"/><p/>
-                <h:commandLink action="#{ocUserRequestBean.looutNext()}">ログアウトはこちらへ</h:commandLink><p/>
-                <h:commandLink action="#{ocUserRequestBean.delUserNext()}">ユーザ削除はこちらへ</h:commandLink>
-            </h:form><p/>
+                <p><h:commandButton value="カキコ" action="#{kakikoRequest.kakikoAddNext()}"/></p>
+                <p><h:commandLink action="#{ocUserRequestBean.looutNext()}">ログアウトはこちらへ</h:commandLink></p>
+                <p><h:commandLink action="#{ocUserRequestBean.delUserNext()}">ユーザ削除はこちらへ</h:commandLink></p>
+            </h:form>
+            <p><h:link outcome="bbs">ページ更新</h:link></p>
         </div>
         
         <div id="displayArea">
-            <h:form>
-                <h:dataTable border="2" rowClasses="row" headerClass="hd1" value="#{kakikoRequest.all}" var="m">
-                    <h:column><f:facet name="header" ><h:outputText value="写真"/></f:facet>
-                        <p:graphicImage value="#{ocUserRequestBean.pic}" width="60" >
+            <h:dataTable id="bbs" border="2" rowClasses="row" headerClass="hd1" value="#{kakikoRequest.all}" var="m" >
+                    <h:column ><f:facet name="header" ><h:outputText value="写真"/></f:facet>
+                        <p:graphicImage value="#{ocUserRequestBean.pic}" style="width:100% ;height: auto;max-width: 50px;" >
                             <f:param name="user_id" value="#{m.userId}"/>
                         </p:graphicImage>
                     </h:column>
                     <h:column><f:facet name="header" ><h:outputText  value="ID"/></f:facet><h:outputText value="#{m.userId}"/></h:column>
                     <h:column><f:facet name="header" ><h:outputText  value="名前"/></f:facet><h:outputText value="#{m.name}"/></h:column>
                     <h:column><f:facet name="header" ><h:outputText  value="メッセージ"/></f:facet><h:outputText value="#{m.msg}"/></h:column>
-                    <h:column><f:facet name="header"><h:outputText value="年月日"/></f:facet><h:outputText value="#{m.day}"/></h:column>
+                    <h:column><f:facet name="header"><h:outputText value="投稿日"/></f:facet><h:outputText value="#{m.day}"/></h:column>
                 </h:dataTable>
-            </h:form>
+            <h:link hreflang="#">ページトップへ</h:link>
         </div>
+        
     </h:body>
 </html>
 
